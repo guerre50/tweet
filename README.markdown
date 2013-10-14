@@ -4,18 +4,20 @@
 ## Important note about Twitter's API changes in 2013
 
 Twitter has <a href="https://dev.twitter.com/docs/api/1.1/overview">discontinued
-its unauthenticated v1.0 API</a>, so <b>this widget has stopped working as of 2013-06-11</b>.
+its unauthenticated v1.0 API</a>.
 
-Twitter wants your only option for on-page widgets to be their
-own Embedded Timelines, but <b>there are workarounds which involve
-installing server-side code to support this widget</b>. Please see
-<a href="https://github.com/seaofclouds/tweet/issues/264">this
-discussion for more details</a>.
+<em>Victor:</em> Due to that and thanks to Jason Mayes <a href="http://jasonmayes.com/projects/twitterApi/#sthash.Nvi8TTYJ.dpbs">TwitterFetcher</a> I have modified the original project to work again. Just create your widget and add its id as a parameter (widget_id) when initializing the plugin 
 
+
+## Create a widget:
+
+* go to <a href="https://twitter.com/settings/widgets/new">https://twitter.com/settings/widgets/new</a>
+* configure your widget and click "Create widget" button
+* in the embeddable code generated look for <b>data-widget-id</b> and pass its value as a new parameter <b>widget_id</b>:
 
 ## Demos & examples
 
-See [tweet.seaofclouds.com](http://tweet.seaofclouds.com/), or the bundled `index.html` file.
+See [https://dl.dropboxusercontent.com/u/5476179/tweet/index.html](https://dl.dropboxusercontent.com/u/5476179/tweet/index.html), or the bundled `index.html` file.
 
 ## Source
 
@@ -57,6 +59,7 @@ See [tweet.seaofclouds.com](http://tweet.seaofclouds.com/), or the bundled `inde
                     join_text: "auto",
                     avatar_size: 32,
                     count: 3,
+                    widget_id: "319141590008467456",
                     loading_text: "loading tweets..."
                 });
             });
