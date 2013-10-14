@@ -179,30 +179,17 @@
       var imageURL = $tweet.attr("data-pic-twitter");
       var tweetId = $tweet.attr("data-tweet-id");
 
-      if (imageURL == "") {
-        for (var i = 0; i < linkElements.length; ++i) {
-          var elem = linkElements[i];
-          var $elem = $(elem);
-          var html = $elem.html();
-
-          if (html.search(/instagram/) != -1) {
-             imageURL = $elem.attr("data-expanded-url") + "media/";
-             console.log(imageURL);
-          }
-        }
-      }
-
       var tweetItem = {
         tweet_id: tweetId,
         retweet: false,
         text: components[1].innerText.substr(0, 140),
-        profile_image_url: $($(components[0]).children()[0]).children()[0].src,
         created_at: date,
         user: {
+          profile_image_url_https: $($(components[0]).children()[0]).children()[0].src,
+          profile_image_url: $($(components[0]).children()[0]).children()[0].src,
           screen_name: user.substr(screenNameBegin+" (screen name: ".length).slice(0, -1),
           name: user.substr(0, screenNameBegin)
-        },
-        image_url: imageURL
+        }
       };
 
       return extract_template_data(tweetItem);
